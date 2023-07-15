@@ -17,5 +17,5 @@ app.get("/", (req, res) => {
 });
 // Server
 app.listen(constatns_1.constants.PORT, () => {
-    console.log("listening on port: " + constatns_1.constants.PORT);
+    console.log(`listening on port: ${constatns_1.constants.PORT} ...`);
 });

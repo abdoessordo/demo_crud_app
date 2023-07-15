@@ -17,5 +17,5 @@ app.get("/", (req: Request, res: Response) => {
 
 // Server
 app.listen(constants.PORT, () => {
-  console.log("listening on port: " + constants.PORT);
+  console.log(`listening on port: ${constants.PORT} ...`);
 });
