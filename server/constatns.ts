@@ -14,6 +14,10 @@ interface IConstants {
   DB_USER: string;
   DB_PASSWORD: string;
   DB_URL: string;
+
+  // CORS
+  WHITE_LISTED_PORTS: Number[];
+  WHITE_LISTED_HOSTS: string[];
 }
 
 export const constants: IConstants = {
@@ -28,4 +32,6 @@ export const constants: IConstants = {
   DB_PASSWORD: process.env.DB_PASSWORD || "admin",
   DB_URL:
     process.env.DB_URL || "postgres://postgres:admin@localhost:5432/postgres",
+  WHITE_LISTED_PORTS: [3000, 4000, 5000],
+  WHITE_LISTED_HOSTS: ["localhost", "127.0.0.1"],
 };
