@@ -16,4 +16,5 @@ model Produit {
   query_name    String @unique
   quantite      Int
   prix_unitaire Int
+  img           String
 }

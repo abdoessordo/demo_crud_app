@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Produit" ALTER COLUMN "img" DROP DEFAULT;

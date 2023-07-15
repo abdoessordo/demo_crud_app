@@ -16,6 +16,7 @@ exports.constants = {
     DB_USER: process.env.DB_USER || "postgres",
     DB_PASSWORD: process.env.DB_PASSWORD || "admin",
     DB_URL: process.env.DB_URL || "postgres://postgres:admin@localhost:5432/postgres",
-    WHITE_LISTED_PORTS: [3000, 4000, 5000],
+    // CORS
+    WHITE_LISTED_PORTS: [3000, 4000, 5000, 5173],
     WHITE_LISTED_HOSTS: ["localhost", "127.0.0.1"],
 };

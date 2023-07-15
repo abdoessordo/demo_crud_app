@@ -15,7 +15,7 @@ exports.deleteProduct = exports.updateProduct = exports.findProduct = exports.fi
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { nom, quantite, prix_unitaire } = req.body;
+    const { nom, quantite, prix_unitaire, img_path } = req.body;
     if (!nom || !quantite || !prix_unitaire)
         return res.status(400).json({ message: "Missing fields" });
     let produit = {
@@ -23,6 +23,7 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         query_name: nom.toLowerCase(),
         quantite: quantite,
         prix_unitaire: prix_unitaire,
+        img: img_path,
     };
     try {
         const createdProduct = yield prisma.produit.create({ data: produit });

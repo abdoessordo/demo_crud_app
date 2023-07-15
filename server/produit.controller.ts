@@ -9,10 +9,11 @@ interface RequestBody {
   nom: string;
   quantite: number;
   prix_unitaire: number;
+  img_path: string;
 }
 
 export const createProduct = async (req: Request, res: Response) => {
-  const { nom, quantite, prix_unitaire }: RequestBody = req.body;
+  const { nom, quantite, prix_unitaire, img_path }: RequestBody = req.body;
 
   if (!nom || !quantite || !prix_unitaire)
     return res.status(400).json({ message: "Missing fields" });
@@ -22,6 +23,7 @@ export const createProduct = async (req: Request, res: Response) => {
     query_name: nom.toLowerCase(),
     quantite: quantite,
     prix_unitaire: prix_unitaire,
+    img: img_path,
   };
 
   try {
