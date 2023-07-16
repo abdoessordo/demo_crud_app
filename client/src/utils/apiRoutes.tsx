@@ -9,4 +9,5 @@ export const apiRoutes = {
   getProductById: (id: number) => `${baseURL}/produit/${id}`,
   updateProduct: (id: number) => `${baseURL}/produit/update/${id}`,
   deleteProduct: (id: number) => `${baseURL}/produit/delete/${id}`,
+  uploadImage: `${baseURL}/product/upload`,
 };

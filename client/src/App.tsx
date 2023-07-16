@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import Footer from "./Components/Footer/Footer";
 import Admin from "./Pages/Admin/Admin";
+import AddProductPage from "./Pages/AddProduct/AddProductPage";
 
 function App() {
   const Layout = () => {
@@ -26,7 +27,7 @@ function App() {
 
         { path: "/admin", element: <Admin /> },
         { path: "/admin/product/:id", element: <div>Admin Product</div> },
-        { path: "/admin/add", element: <div>Add Product</div> },
+        { path: "/admin/add", element: <AddProductPage /> },
       ],
     },
   ]);
