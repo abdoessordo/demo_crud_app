@@ -4,10 +4,19 @@ import { GrFormClose } from "react-icons/gr";
 import { Product } from "../../utils/interfaces";
 import { apiRoutes } from "../../utils/apiRoutes";
 import axios from "axios";
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
 
-export default function Datatable({ products }: { products: Product[] }) {
+export default function Datatable({
+  products,
+  isLoading,
+}: {
+  products: Product[];
+  isLoading: boolean;
+}) {
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
-
+  if (isLoading) {
+    return <LoadingAnimation />;
+  }
   // A table for admin to view all products and perform CRUD operations
   return (
     <div className="pt-8 px-4">

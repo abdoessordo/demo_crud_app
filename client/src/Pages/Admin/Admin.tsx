@@ -9,12 +9,14 @@ import Datatable from "../../Components/DataTable/Datatable";
 
 export default function Admin() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // get all products
   const getAllProducts = async () => {
     try {
       const res = await axios.get(apiRoutes.getAllProducts);
       setProducts(res.data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +37,7 @@ export default function Admin() {
         <Searchbar setProducts={setProducts} />
       </div>
       {/* Products */}
-      <Datatable products={products} />
+      <Datatable products={products} isLoading={isLoading} />
     </div>
   );
 }
