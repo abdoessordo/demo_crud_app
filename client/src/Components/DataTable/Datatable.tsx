@@ -122,8 +122,11 @@ function ConfirmDeletePopup({
   id: number;
   setShowConfirmDelete: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleDelete = async () => {
     try {
+      setIsLoading(true);
       const res = await axios.delete(apiRoutes.deleteProduct(id));
       console.log(res);
       window.location.href = "/admin";
@@ -156,23 +159,28 @@ function ConfirmDeletePopup({
         </div>
 
         {/* Buttons */}
-        <div className="mt-5 sm:mt-6 flex justify-center items-center gap-5">
-          <button
-            type="button"
-            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
-            onClick={() => setShowConfirmDelete(false)}
-          >
-            Non
-          </button>
 
-          <button
-            type="button"
-            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-500 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
-            onClick={handleDelete}
-          >
-            Oui
-          </button>
-        </div>
+        {isLoading ? (
+          <LoadingAnimation />
+        ) : (
+          <div className="mt-5 sm:mt-6 flex justify-center items-center gap-5">
+            <button
+              type="button"
+              className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+              onClick={() => setShowConfirmDelete(false)}
+            >
+              Non
+            </button>
+
+            <button
+              type="button"
+              className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-500 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+              onClick={handleDelete}
+            >
+              Oui
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

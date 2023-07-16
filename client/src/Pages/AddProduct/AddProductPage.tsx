@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { apiRoutes } from "../../utils/apiRoutes";
 import axios from "axios";
+import LoadingAnimation from "../../Components/LoadingAnimation/LoadingAnimation";
 
 export default function AddProductPage() {
   const [name, setName] = useState("");
@@ -9,6 +10,8 @@ export default function AddProductPage() {
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleFileChange = (e: any) => {
     console.log(e.target.files[0]);
     setImage(e.target.files[0]);
@@ -16,6 +19,7 @@ export default function AddProductPage() {
 
   const handlesubmit = async (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
 
     console.log(name, description, price, image);
 
@@ -57,23 +61,31 @@ export default function AddProductPage() {
     // Form to add a product
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold">Add Product</h1>
-      <form className="flex flex-col items-center justify-center">
-        <CInput type="text" placeholder="Nom" onChange={setName} />
+      {isLoading ? (
+        <LoadingAnimation />
+      ) : (
+        <form className="flex flex-col items-center justify-center">
+          <CInput type="text" placeholder="Nom" onChange={setName} />
 
-        <CInput type="number" placeholder="Quantite" onChange={setQuantity} />
+          <CInput type="number" placeholder="Quantite" onChange={setQuantity} />
 
-        <CInput type="number" placeholder="Prix unitaire" onChange={setPrice} />
+          <CInput
+            type="number"
+            placeholder="Prix unitaire"
+            onChange={setPrice}
+          />
 
-        <CInput type="file" placeholder="Image" onChange={handleFileChange} />
+          <CInput type="file" placeholder="Image" onChange={handleFileChange} />
 
-        <button
-          className="border-2 border-gray-400 rounded-md p-2 m-2"
-          type="submit"
-          onClick={handlesubmit}
-        >
-          Add Product
-        </button>
-      </form>
+          <button
+            className="border-2 border-gray-400 rounded-md p-2 m-2"
+            type="submit"
+            onClick={handlesubmit}
+          >
+            Add Product
+          </button>
+        </form>
+      )}
     </div>
   );
 }
