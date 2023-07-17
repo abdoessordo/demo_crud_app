@@ -128,7 +128,23 @@ Démarrez le serveur
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+## Screenshots
+
+![Screenshot 1](https://abdoessordo.github.io/demo_crud_app/screenshots/1.png)
+
+![Screenshot 2](https://abdoessordo.github.io/demo_crud_app/screenshots/2.png)
+
+![Screenshot 3](https://abdoessordo.github.io/demo_crud_app/screenshots/3.png)
+
+![Screenshot 4](https://abdoessordo.github.io/demo_crud_app/screenshots/4.png)
+
+![Screenshot 5](https://abdoessordo.github.io/demo_crud_app/screenshots/5.png)
+
+![Screenshot 6](https://abdoessordo.github.io/demo_crud_app/screenshots/6.png)
+
+![Screenshot 7](https://abdoessordo.github.io/demo_crud_app/screenshots/7.png)
+
+![Screenshot 8](https://abdoessordo.github.io/demo_crud_app/screenshots/8.png)
 
 ## Authors
 
