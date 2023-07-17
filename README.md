@@ -6,7 +6,7 @@ Bienvenue dans cette application CRUD dédiée à la gestion des produits sur un
 
 Pour exécuter ce projet, vous devrez ajouter les variables d'environnement suivantes à votre fichier .env dans le répertoire du serveur :
 
-`PORT`: [Le numéro de port sur lequel le serveur sera en écoute]
+`PORT`: [Le numéro de port sur lequel le serveur sera en écoute] (par défaut : 8000)
 
 `DB_URL`: [L'URL de votre base de données]
 
@@ -98,6 +98,12 @@ Installez les dépendances
 
 ```bash
   npm install
+```
+
+Créez un fichier .env et ajoutez les variables d'environnement requises
+
+```bash
+  touch .env
 ```
 
 Démarrez le serveur
