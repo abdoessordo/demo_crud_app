@@ -128,8 +128,6 @@ Démarrez le serveur
 
 ## Screenshots
 
-## Screenshots
-
 ![Screenshot 1](https://abdoessordo.github.io/demo_crud_app/screenshots/1.png)
 
 ![Screenshot 2](https://abdoessordo.github.io/demo_crud_app/screenshots/2.png)
