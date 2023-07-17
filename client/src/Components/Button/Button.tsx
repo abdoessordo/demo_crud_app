@@ -6,9 +6,9 @@ export default function Button() {
     <div className="flex justify-start px-4">
       <Link
         to="/admin/add"
-        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow-lg"
+        className="bg-black hover:bg-slate-700 text-white font-bold py-2 px-6 rounded-3xl shadow-lg transition duration-300 ease-in-out"
       >
-        Add Product
+        Ajouter
       </Link>
     </div>
   );
