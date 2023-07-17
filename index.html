@@ -4,9 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      img {
+        width:  100%;
+      }
+
+      .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card:last-child > img {
+        width: 50%;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+      }
+    </style>
   </head>
   <body>
-    <img src="./screenshots/1.png" alt="" />
-    <h1>asdasd</h1>
+    <div class="container">
+      <div class="card">
+        <img src="./screenshots/1.png" alt="" />
+        <h1>1</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/2.png" alt="" />
+        <h1>2</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/3.png" alt="" />
+        <h1>3</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/4.png" alt="" />
+        <h1>4</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/5.png" alt="" />
+        <h1>5</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/6.png" alt="" />
+        <h1>6</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/7.png" alt="" />
+        <h1>7</h1>
+      </div>
+      <div class="card">
+        <img src="./screenshots/8.png" alt="" />
+        <h1>8</h1>
+      </div>
+    </div>
   </body>
 </html>
