@@ -136,6 +136,6 @@ Démarrez le serveur
 
 ## Badges
 
-Ce projet est sous licence [MIT](https://choosealicense.com/licenses/mit/).
+Ce projet est sous licence [MIT](https://github.com/abdoessordo/demo_crud_app/blob/main/LICENSE).
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/abdoessordo/demo_crud_app/blob/main/LICENSE)
