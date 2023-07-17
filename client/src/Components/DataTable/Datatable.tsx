@@ -5,6 +5,7 @@ import { Product } from "../../utils/interfaces";
 import { apiRoutes } from "../../utils/apiRoutes";
 import axios from "axios";
 import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
+import { Link } from "react-router-dom";
 
 export default function Datatable({
   products,
@@ -64,7 +65,7 @@ function ProductRow({
       <td className="border px-4 py-2 text-center">{product.prix_unitaire}</td>
       <td className="border px-4 py-2 text-center">{product.quantite}</td>
       <td className="border text-center px-1 py-1">
-        <EditButton />
+        <EditButton id={product.id} />
         <DeleteButton
           id={product.id}
           showConfirmDelete={showConfirmDelete}
@@ -107,11 +108,13 @@ function DeleteButton({
   );
 }
 
-function EditButton() {
+function EditButton({ id }: { id: number }) {
   return (
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded me-1 md:me-5">
-      <AiFillEdit />
-    </button>
+    <Link to={`/admin/edit/${id}`}>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded me-1 md:me-5">
+        <AiFillEdit />
+      </button>
+    </Link>
   );
 }
 

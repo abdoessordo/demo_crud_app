@@ -6,13 +6,14 @@ import Footer from "./Components/Footer/Footer";
 import Admin from "./Pages/Admin/Admin";
 import AddProductPage from "./Pages/AddProduct/AddProductPage";
 import LoadingAnimation from "./Components/LoadingAnimation/LoadingAnimation";
+import ModifyProductPage from "./Pages/ModifyProductPage/ModifyProductPage";
 
 function App() {
   const Layout = () => {
     return (
       <div className="min-h-screen flex flex-col justify-between">
         <Navbar />
-        <Outlet />
+        <Outlet  />
         <Footer />
       </div>
     );
@@ -29,6 +30,10 @@ function App() {
         { path: "/admin", element: <Admin /> },
         { path: "/admin/product/:id", element: <div>Admin Product</div> },
         { path: "/admin/add", element: <AddProductPage /> },
+        {
+          path: "/admin/edit/:id",
+          element: <ModifyProductPage />,
+        },
 
         { path: "*", element: <LoadingAnimation /> },
       ],

@@ -35,7 +35,7 @@ const upload = (0, multer_1.default)({
         }
     },
 });
-// Middlewares
+// Middlewares;
 app.use((0, cors_1.default)({
     origin: function (origin, callback) {
         if (whitlisted_1.allowedOrigins.includes(origin)) {

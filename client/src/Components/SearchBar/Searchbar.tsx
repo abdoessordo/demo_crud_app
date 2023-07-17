@@ -24,7 +24,7 @@ export default function Searchbar({ setProducts }: SearchbarProps) {
   };
   
   return (
-    <div className="flex justify-end px-4">
+    <div className="flex justify-end px-4 md:justify-center">
       <input
         type="text"
         placeholder="Search"

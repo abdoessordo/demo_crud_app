@@ -38,7 +38,7 @@ const upload = multer({
   },
 });
 
-// Middlewares
+// Middlewares;
 app.use(
   cors({
     origin: function (origin: any, callback: any) {

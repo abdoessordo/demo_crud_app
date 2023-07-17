@@ -6,19 +6,23 @@ export interface Product {
   query_name: string;
   quantite: number;
   prix_unitaire: number;
-  image?: string;
-  description?: string;
+  img?: string;
 }
 
 export interface cardProps {
   id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
+  nom: string;
+  description?: string;
+  prix_unitaire: number;
+  img: string;
 }
 
 export interface SearchbarProps {
   // products: Product[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+}
+
+export enum FormType {
+  Add,
+  Edit,
 }

@@ -18,13 +18,7 @@ export default function Cardsgrid({
       {/* for large screens columns of 4 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {products?.map((product: Product) => (
-          <Card
-            id={product.id}
-            title={product.nom}
-            description="Product description"
-            price={product.prix_unitaire}
-            image="https://picsum.photos/200/300"
-          />
+          <Card product={product} hover={true} key={product.id} />
         ))}
       </div>
     </div>

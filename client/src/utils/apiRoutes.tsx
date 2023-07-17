@@ -10,4 +10,5 @@ export const apiRoutes = {
   updateProduct: (id: number) => `${baseURL}/produit/update/${id}`,
   deleteProduct: (id: number) => `${baseURL}/produit/delete/${id}`,
   uploadImage: `${baseURL}/product/upload`,
+  getStaticImage: (path: string) => `${baseURL}/${path}`,
 };

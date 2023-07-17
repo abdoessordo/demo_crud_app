@@ -37,7 +37,13 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.createProduct = createProduct;
 const findAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const produits = yield prisma.produit.findMany();
+        const produits = yield prisma.produit.findMany({
+            where: {
+                quantite: {
+                    gt: 0,
+                },
+            },
+        });
         return res.status(200).json(produits);
     }
     catch (err) {
@@ -79,7 +85,7 @@ const findProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.findProduct = findProduct;
 const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = parseInt(req.params.id);
-    const { nom, quantite, prix_unitaire } = req.body;
+    const { nom, quantite, prix_unitaire, img_path } = req.body;
     if (!nom || !quantite || !prix_unitaire)
         return res.status(400).json({ message: "Missing fields" });
     let produit = {
@@ -87,6 +93,7 @@ const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         query_name: nom.toLowerCase(),
         quantite: quantite,
         prix_unitaire: prix_unitaire,
+        img: img_path,
     };
     try {
         const updatedProduct = yield prisma.produit.update({
