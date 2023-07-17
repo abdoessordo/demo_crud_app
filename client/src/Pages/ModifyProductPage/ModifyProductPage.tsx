@@ -14,6 +14,11 @@ export default function ModifyProductPage() {
   const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
+    // set window title
+    document.title = `Modifier | ${product?.nom} | ${product?.prix_unitaire}€`;
+  }, [product]);
+
+  useEffect(() => {
     const getProduct = async () => {
       setIsLoading(true);
 
@@ -45,7 +50,9 @@ export default function ModifyProductPage() {
             product={product}
           />
           {/* Display product Card */}
-          <div className="w-80 mt-5">{product && <Card product={product} />}</div>
+          <div className="w-80 mt-5">
+            {product && <Card product={product} />}
+          </div>
         </div>
       )}
     </div>

@@ -35,7 +35,7 @@ export const createProduct = async (req: Request, res: Response) => {
   }
 };
 
-export const findAllProducts = async (req: Request, res: Response) => {
+export const findAllProductsAvailable = async (req: Request, res: Response) => {
   try {
     const produits = await prisma.produit.findMany({
       where: {
@@ -44,6 +44,15 @@ export const findAllProducts = async (req: Request, res: Response) => {
         },
       },
     });
+    return res.status(200).json(produits);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export const findAllProducts = async (req: Request, res: Response) => {
+  try {
+    const produits = await prisma.produit.findMany({});
     return res.status(200).json(produits);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -88,7 +97,10 @@ export const updateProduct = async (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const { nom, quantite, prix_unitaire, img_path }: RequestBody = req.body;
 
-  if (!nom || !quantite || !prix_unitaire)
+  console.log("prix_unitaire: ", prix_unitaire);
+
+  // allow quantity to be 0
+  if (!nom || !prix_unitaire || quantite === undefined)
     return res.status(400).json({ message: "Missing fields" });
 
   let produit: Prisma.ProduitUpdateInput = {

@@ -13,6 +13,8 @@ router.post("/add", produit_controller_1.createProduct);
 // Read
 router.get("/search", produit_controller_1.findProduct);
 router.get("/all", produit_controller_1.findAllProducts);
+// route for not out of stock products
+router.get("/all/available", produit_controller_1.findAllProductsAvailable);
 router.get("/:id", produit_controller_1.findProductById);
 // Update
 router.put("/update/:id", produit_controller_1.updateProduct);

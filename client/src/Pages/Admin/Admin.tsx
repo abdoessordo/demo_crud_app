@@ -22,6 +22,8 @@ export default function Admin() {
   };
 
   useEffect(() => {
+    // set window title
+    document.title = "Admin";
     getAllProducts();
   }, []);
 
@@ -31,17 +33,15 @@ export default function Admin() {
 
       <div
         className="
-      flex justify-between md:justify-around mb-5
-      xs:grid xs:grid-cols-3 items-center"
+        flex flex-col md:flex-row
+        justify-center
+        gap-5
+      "
       >
         {/* Add Product Button */}
-        <div className="xs:col-span-2">
-          <Button />
-        </div>
+        <Button />
 
-        <div className="col-span-1">
-          <Searchbar setProducts={setProducts} />
-        </div>
+        <Searchbar setProducts={setProducts} />
 
         {/* Search */}
       </div>

@@ -7,13 +7,14 @@ import Admin from "./Pages/Admin/Admin";
 import AddProductPage from "./Pages/AddProduct/AddProductPage";
 import LoadingAnimation from "./Components/LoadingAnimation/LoadingAnimation";
 import ModifyProductPage from "./Pages/ModifyProductPage/ModifyProductPage";
+import ProductPage from "./Pages/ProductPage/ProductPage";
 
 function App() {
   const Layout = () => {
     return (
       <div className="min-h-screen flex flex-col justify-between">
         <Navbar />
-        <Outlet  />
+        <Outlet />
         <Footer />
       </div>
     );
@@ -25,10 +26,9 @@ function App() {
       element: <Layout />,
       children: [
         { path: "/", element: <Home /> },
-        { path: "/product/:id", element: <div>Product</div> },
+        { path: "/product/:id", element: <ProductPage /> },
 
         { path: "/admin", element: <Admin /> },
-        { path: "/admin/product/:id", element: <div>Admin Product</div> },
         { path: "/admin/add", element: <AddProductPage /> },
         {
           path: "/admin/edit/:id",

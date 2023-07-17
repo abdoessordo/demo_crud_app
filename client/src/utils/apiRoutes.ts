@@ -4,6 +4,7 @@ const baseURL: string = `http://${host}:${port}/api`;
 
 export const apiRoutes = {
   addProduct: `${baseURL}/produit/add`,
+  getAllProductsAvailable: `${baseURL}/produit/all/available`,
   getAllProducts: `${baseURL}/produit/all`,
   searchProducts: (search: string) => `${baseURL}/produit/search?nom=${search}`,
   getProductById: (id: number) => `${baseURL}/produit/${id}`,

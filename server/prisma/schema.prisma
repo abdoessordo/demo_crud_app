@@ -15,6 +15,6 @@ model Produit {
   nom           String @unique
   query_name    String @unique
   quantite      Int
-  prix_unitaire Int
+  prix_unitaire Float
   img           String
 }

@@ -7,6 +7,7 @@ import {
   findProduct,
   updateProduct,
   deleteProduct,
+  findAllProductsAvailable
 } from "./produit.controller";
 
 const router: Router = express.Router();
@@ -20,6 +21,8 @@ router.post("/add", createProduct);
 // Read
 router.get("/search", findProduct);
 router.get("/all", findAllProducts);
+// route for not out of stock products
+router.get("/all/available", findAllProductsAvailable);
 router.get("/:id", findProductById);
 
 // Update

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Product } from "../../utils/interfaces";
+import { apiRoutes } from "../../utils/apiRoutes";
 
 export default function Card({
   product: { id, nom, prix_unitaire, img },
@@ -27,7 +28,7 @@ export default function Card({
             <p className="text-sm">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </p>
-            <p className="text-sm font-bold">${prix_unitaire}</p>
+            <p className="text-sm font-bold">{prix_unitaire}€</p>
           </div>
         </div>
       </Link>
@@ -40,17 +41,17 @@ export default function Card({
     >
       <div className="text-center">
         <img
-          src={`http://localhost:8000/api/${img}`}
+          src={img && apiRoutes.getStaticImage(img)}
           alt="product"
           className="w-80 h-80 object-cover"
         />
       </div>
       <div className="text-center">
         <h2 className="text-lg font-bold">{nom}</h2>
-        <p className="text-sm">
+        {/* <p className="text-sm">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        </p>
-        <p className="text-sm font-bold">${prix_unitaire}</p>
+        </p> */}
+        <p className="text-sm font-bold">{prix_unitaire}€</p>
       </div>
     </div>
   );

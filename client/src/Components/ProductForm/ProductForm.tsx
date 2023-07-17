@@ -84,12 +84,14 @@ export default function ProductForm({
   return (
     <form className="flex flex-col items-center justify-center px-3">
       <div className="grid grid-cols-3 gap-4 gap-x-2 items-center justify-center auto-cols-max flex items-center">
-        <label
-          className="text-gray-700 text-sm font-bold mb-2 col-span-1
+        <div>
+          <label
+            className="text-gray-700 text-sm font-bold mb-2 col-span-1
         "
-        >
-          Nom
-        </label>
+          >
+            Nom
+          </label>
+        </div>
 
         <CInput
           type="text"
@@ -101,9 +103,11 @@ export default function ProductForm({
         {/* 
       if formType is edit, we need to add labels to the inputs
        */}
-        <label className="text-gray-700 text-sm font-bold mb-2 col-span-1">
-          Quantite
-        </label>
+        <div>
+          <label className="text-gray-700 text-sm font-bold mb-2 col-span-1">
+            Quantite
+          </label>
+        </div>
 
         <CInput
           type="number"
@@ -111,14 +115,17 @@ export default function ProductForm({
           onChange={setQuantity}
           value={formType === FormType.Edit ? product?.quantite : quantity}
         />
-        <label className="text-gray-700 text-sm font-bold mb-2 col-span-1">
-          Prix unitaire
-        </label>
+        <div>
+          <label className="text-gray-700 text-sm font-bold mb-2 col-span-1">
+            Prix unitaire (€)
+          </label>
+        </div>
         <CInput
           type="number"
           placeholder="Prix unitaire"
           onChange={setPrice}
           value={formType === FormType.Edit ? product?.prix_unitaire : price}
+          step={0.1}
         />
       </div>
 
@@ -141,11 +148,13 @@ function CInput({
   placeholder,
   onChange,
   value,
+  step,
 }: {
   type: string;
   placeholder: string;
   onChange: any;
   value?: any;
+  step?: number;
 }) {
   if (type === "file")
     return (
@@ -168,6 +177,7 @@ function CInput({
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         defaultValue={value}
+        step={step}
       />
     </div>
   );

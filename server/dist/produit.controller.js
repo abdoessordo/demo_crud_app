@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProduct = exports.updateProduct = exports.findProduct = exports.findProductById = exports.findAllProducts = exports.createProduct = void 0;
+exports.deleteProduct = exports.updateProduct = exports.findProduct = exports.findProductById = exports.findAllProducts = exports.findAllProductsAvailable = exports.createProduct = void 0;
 // Database : Postgres
 // ORM : Prisma
 const client_1 = require("@prisma/client");
@@ -35,7 +35,7 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.createProduct = createProduct;
-const findAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const findAllProductsAvailable = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const produits = yield prisma.produit.findMany({
             where: {
@@ -44,6 +44,16 @@ const findAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function
                 },
             },
         });
+        return res.status(200).json(produits);
+    }
+    catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+exports.findAllProductsAvailable = findAllProductsAvailable;
+const findAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const produits = yield prisma.produit.findMany({});
         return res.status(200).json(produits);
     }
     catch (err) {
@@ -86,7 +96,9 @@ exports.findProduct = findProduct;
 const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = parseInt(req.params.id);
     const { nom, quantite, prix_unitaire, img_path } = req.body;
-    if (!nom || !quantite || !prix_unitaire)
+    console.log("prix_unitaire: ", prix_unitaire);
+    // allow quantity to be 0
+    if (!nom || !prix_unitaire || quantite === undefined)
         return res.status(400).json({ message: "Missing fields" });
     let produit = {
         nom: nom,

@@ -62,7 +62,7 @@ function ProductRow({
     <tr>
       <td className="border px-4 py-2 text-center">{product.id}</td>
       <td className="border px-4 py-2 text-center">{product.nom}</td>
-      <td className="border px-4 py-2 text-center">{product.prix_unitaire}</td>
+      <td className="border px-4 py-2 text-center">{product.prix_unitaire}€</td>
       <td className="border px-4 py-2 text-center">{product.quantite}</td>
       <td className="border text-center px-1 py-1">
         <EditButton id={product.id} />
@@ -138,7 +138,7 @@ function ConfirmDeletePopup({
     }
   };
   return (
-    <div className="fixed z-10 inset-0 overflow-y-auto bg-gray-500 bg-opacity-75 flex justify-center items-center min-h-screen">
+    <div className="fixed z-10 inset-0 overflow-y-auto bg-[#5959594d] bg-opacity-75 flex justify-center items-center min-h-screen">
       <div
         className="
       bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 rounded-md shadow-xl transform transition-all 

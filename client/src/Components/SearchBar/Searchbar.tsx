@@ -26,10 +26,10 @@ export default function Searchbar({ setProducts }: SearchbarProps) {
   };
 
   return (
-    <div className="flex justify-end px-4 md:justify-center">
+    <div className="flex  px-4 justify-center">
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Rechercher un produit"
         className="border border-gray-400 rounded-lg px-4 py-2 "
         onChange={(e) => handleChange(e)}
         onKeyUp={(e) => handleSearch(e)}

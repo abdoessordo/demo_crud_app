@@ -12,7 +12,7 @@ export default function Home() {
   // get all products
   const getAllProducts = async () => {
     try {
-      const res = await axios.get(apiRoutes.getAllProducts);
+      const res = await axios.get(apiRoutes.getAllProductsAvailable);
       setProducts(res.data);
       setIsLoading(false);
     } catch (error) {
@@ -21,14 +21,16 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // set window title
+    document.title = "Catalogue";
     getAllProducts();
   }, []);
 
   return (
-    <>
-      <h1 className="text-3xl font-bold text-center my-8">Home</h1>
+    <div className="flex flex-col justify-center">
+      <h1 className="text-3xl font-bold text-center my-8">Catalogue</h1>
       <Searchbar setProducts={setProducts} />
       <Cardsgrid products={products} isLoading={isLoading} />
-    </>
+    </div>
   );
 }

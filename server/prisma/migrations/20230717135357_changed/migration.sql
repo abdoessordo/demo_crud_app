@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Produit" ALTER COLUMN "prix_unitaire" SET DATA TYPE DOUBLE PRECISION;
