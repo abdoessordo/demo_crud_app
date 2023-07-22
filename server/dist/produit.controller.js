@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProduct = exports.updateProduct = exports.findProduct = exports.findProductById = exports.findAllProducts = exports.findAllProductsAvailable = exports.createProduct = void 0;
+exports.uploadImage = exports.deleteProduct = exports.updateProduct = exports.findProduct = exports.findProductById = exports.findAllProducts = exports.findAllProductsAvailable = exports.createProduct = void 0;
 // Database : Postgres
 // ORM : Prisma
 const client_1 = require("@prisma/client");
@@ -130,3 +130,16 @@ const deleteProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.deleteProduct = deleteProduct;
+const uploadImage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        if (!req.file)
+            return res.status(400).json({ message: "No file uploaded!" });
+        console.log(req.file);
+        return res.send(req.file);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({ message: err.message });
+    }
+});
+exports.uploadImage = uploadImage;

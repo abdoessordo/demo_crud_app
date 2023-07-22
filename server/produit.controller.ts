@@ -130,3 +130,15 @@ export const deleteProduct = async (req: Request, res: Response) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const uploadImage = async (req: Request, res: Response) => {
+  try {
+    if (!req.file)
+      return res.status(400).json({ message: "No file uploaded!" });
+    console.log(req.file);
+    return res.send(req.file);
+  } catch (err: any) {
+    console.log(err);
+    res.status(500).json({ message: err.message });
+  }
+};

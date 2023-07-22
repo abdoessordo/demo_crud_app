@@ -6,10 +6,10 @@ export const apiRoutes = {
   addProduct: `${baseURL}/produit/add`,
   getAllProductsAvailable: `${baseURL}/produit/all/available`,
   getAllProducts: `${baseURL}/produit/all`,
+  uploadImage: `${baseURL}/produit/upload`,
   searchProducts: (search: string) => `${baseURL}/produit/search?nom=${search}`,
   getProductById: (id: number) => `${baseURL}/produit/${id}`,
   updateProduct: (id: number) => `${baseURL}/produit/update/${id}`,
   deleteProduct: (id: number) => `${baseURL}/produit/delete/${id}`,
-  uploadImage: `${baseURL}/product/upload`,
   getStaticImage: (path: string) => `${baseURL}/${path}`,
 };
