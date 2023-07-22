@@ -41,7 +41,7 @@ export default function Admin() {
         {/* Add Product Button */}
         <Button />
 
-        <Searchbar setProducts={setProducts} />
+        <Searchbar setProducts={setProducts} setIsLoading={setIsLoading} />
 
         {/* Search */}
       </div>

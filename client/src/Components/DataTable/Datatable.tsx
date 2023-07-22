@@ -131,10 +131,10 @@ function ConfirmDeletePopup({
     try {
       setIsLoading(true);
       const res = await axios.delete(apiRoutes.deleteProduct(id));
-      console.log(res);
+      // console.log(res);
       window.location.href = "/admin";
     } catch (error) {
-      console.log(error);
+      console.log(error);      
     }
   };
   return (

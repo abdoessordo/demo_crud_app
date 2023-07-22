@@ -5,7 +5,7 @@ import Cardsgrid from "../../Components/Cardsgrid/Cardsgrid";
 import { Product } from "../../utils/interfaces";
 import Searchbar from "../../Components/SearchBar/Searchbar";
 
-export default function Home() {
+export default function Catalogue() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center">
       <h1 className="text-3xl font-bold text-center my-8">Catalogue</h1>
-      <Searchbar setProducts={setProducts} />
+      <Searchbar setProducts={setProducts} setIsLoading={setIsLoading} />
       <Cardsgrid products={products} isLoading={isLoading} />
     </div>
   );

@@ -20,6 +20,7 @@ export interface cardProps {
 export interface SearchbarProps {
   // products: Product[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export enum FormType {

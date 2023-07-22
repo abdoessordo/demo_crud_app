@@ -26,7 +26,7 @@ export default function ProductForm({
   }, [product]);
 
   const handleFileChange = (e: any) => {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     setImage(e.target.files[0]);
   };
 
@@ -37,7 +37,7 @@ export default function ProductForm({
     const fd = new FormData();
     fd.append("image", image);
 
-    console.log(fd);
+    // console.log(fd);
 
     const config = {
       method: "post",
@@ -72,7 +72,7 @@ export default function ProductForm({
       };
 
       const res2 = await axios(config2);
-      console.log(res2);
+      // console.log(res2);
 
       // redirect to admin page if success
       window.location.href = "/admin";

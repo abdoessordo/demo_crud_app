@@ -3,7 +3,10 @@ import { apiRoutes } from "../../utils/apiRoutes";
 import { SearchbarProps } from "../../utils/interfaces";
 import axios from "axios";
 
-export default function Searchbar({ setProducts }: SearchbarProps) {
+export default function Searchbar({
+  setProducts,
+  setIsLoading,
+}: SearchbarProps) {
   const [search, setSearch] = useState<string>("");
 
   // search
@@ -12,13 +15,15 @@ export default function Searchbar({ setProducts }: SearchbarProps) {
   };
 
   const handleSearch = async (e: any) => {
-    console.log(e.key);
+    // console.log(e.key);
     if (e.key === "Enter") {
+      setIsLoading(true);
       try {
         const res = await axios.get(
           apiRoutes.searchProducts(search.toLowerCase())
         );
         setProducts(res.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }

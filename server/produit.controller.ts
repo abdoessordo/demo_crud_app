@@ -75,8 +75,6 @@ export const findProduct = async (req: Request, res: Response) => {
   console.log("Searching for product ...");
   const search = req.query.nom as string;
 
-  console.log("search: ", search);
-
   try {
     const produits = await prisma.produit.findMany({
       where: {
@@ -96,8 +94,6 @@ export const findProduct = async (req: Request, res: Response) => {
 export const updateProduct = async (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const { nom, quantite, prix_unitaire, img_path }: RequestBody = req.body;
-
-  console.log("prix_unitaire: ", prix_unitaire);
 
   // allow quantity to be 0
   if (!nom || !prix_unitaire || quantite === undefined)

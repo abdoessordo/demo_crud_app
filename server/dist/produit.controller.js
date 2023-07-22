@@ -76,7 +76,6 @@ exports.findProductById = findProductById;
 const findProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log("Searching for product ...");
     const search = req.query.nom;
-    console.log("search: ", search);
     try {
         const produits = yield prisma.produit.findMany({
             where: {
@@ -96,7 +95,6 @@ exports.findProduct = findProduct;
 const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = parseInt(req.params.id);
     const { nom, quantite, prix_unitaire, img_path } = req.body;
-    console.log("prix_unitaire: ", prix_unitaire);
     // allow quantity to be 0
     if (!nom || !prix_unitaire || quantite === undefined)
         return res.status(400).json({ message: "Missing fields" });

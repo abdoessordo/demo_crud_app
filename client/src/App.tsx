@@ -1,7 +1,6 @@
-import React from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
-import Home from "./Pages/Home/Home";
+import Catalogue from "./Pages/Catalogue/Catalogue";
 import Footer from "./Components/Footer/Footer";
 import Admin from "./Pages/Admin/Admin";
 import AddProductPage from "./Pages/AddProduct/AddProductPage";
@@ -25,7 +24,7 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "/", element: <Home /> },
+        { path: "/", element: <Catalogue /> },
         { path: "/product/:id", element: <ProductPage /> },
 
         { path: "/admin", element: <Admin /> },
