@@ -130,8 +130,7 @@ function ConfirmDeletePopup({
   const handleDelete = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.delete(apiRoutes.deleteProduct(id));
-      // console.log(res);
+      await axios.delete(apiRoutes.deleteProduct(id));
       window.location.href = "/admin";
     } catch (error) {
       console.log(error);      

@@ -71,8 +71,7 @@ export default function ProductForm({
         },
       };
 
-      const res2 = await axios(config2);
-      // console.log(res2);
+      await axios(config2);
 
       // redirect to admin page if success
       window.location.href = "/admin";
